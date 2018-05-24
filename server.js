@@ -28,6 +28,8 @@ app.get('/posts', (req, res) => {
     });
 });
 
+
+
 // START AND STOP SERVER
 let server;
 
