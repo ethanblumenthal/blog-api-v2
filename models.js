@@ -5,11 +5,11 @@ const mongoose = require('mongoose');
 // SCHEMA
 const postSchema = mongoose.Schema({
     title: {type: String, required: true},
-    content: {type: String},
+    content: {type: String, required: true},
     created: {type: Date, default: Date.now},
     author: {
-      firstName: {type: String},
-      lastName: {type: String}
+      firstName: {type: String, required: true},
+      lastName: {type: String, required: true}
     }
 });
 
