@@ -16,11 +16,8 @@ app.use(express.json());
 app.get('/posts', (req, res) => {
   Post
     .find()
-    .limit(10)
     .then(posts => {
-      res.json({
-        posts: posts.map((post) => post.serialize())
-      });
+      res.json(posts.map(post => post.serialize()));
     })
     .catch(err => {
       console.error(err);
