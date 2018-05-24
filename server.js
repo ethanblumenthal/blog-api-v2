@@ -28,7 +28,15 @@ app.get('/posts', (req, res) => {
     });
 });
 
-
+app.get('/posts/:id', (req, res) => {
+  Post
+    .findById(req.params.id)
+    .then(post => res.json(post.serialize()))
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({error: 'Internal server error'});
+    });
+});
 
 // START AND STOP SERVER
 let server;
