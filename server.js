@@ -88,6 +88,19 @@ app.put('/posts/:id', (req, res) => {
     });
 });
 
+// DELETE REQUEST
+app.delete('/posts/:id', (req, res) => {
+  Post
+    .findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.status(204).json({message: 'success'});
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({error: 'Internal server error'});
+    });
+});
+
 // START AND STOP SERVER
 let server;
 
